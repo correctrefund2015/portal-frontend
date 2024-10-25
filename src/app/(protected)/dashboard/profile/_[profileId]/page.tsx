@@ -16,12 +16,12 @@ type Props = {
   params: { [key: string]: string };
   searchParams?: { [key: string]: string | string[] | undefined };
 };
+
 const ProfilePage = async ({ params, searchParams }: Props) => {
   const profileId = params?.profileId;
   const profileType = searchParams?.type as string;
 
   let profile: any = null;
-  // let businessProfiles: BusinessProfile[] = [];
 
   if (profileType === "BUSINESS") {
     profile = await getBusinessProfilesById(profileId);
@@ -48,16 +48,17 @@ const ProfilePage = async ({ params, searchParams }: Props) => {
           {profile && (
             <>
               <div>
-                <EmploymentDetailsCard profile={profile} />
+                <EmploymentDetailsCard profile={profile} profileType={profileType} />
               </div>
 
               <div className="space-y-4">
-                <FinanceDetailsCard profile={profile} />
-                <SpouseDetailsCard profile={profile} />
+                {/* Pass profileType to FinanceDetailsCard */}
+                <FinanceDetailsCard profile={profile} profileType={profileType} />
+                <SpouseDetailsCard profile={profile} profileType={profileType} />
               </div>
 
               <div>
-                <DependentDetailsCard profile={profile} />
+                <DependentDetailsCard  profile={profile} profileType={profileType}  />
               </div>
             </>
           )}
