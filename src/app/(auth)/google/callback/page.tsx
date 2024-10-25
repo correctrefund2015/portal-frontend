@@ -1,14 +1,14 @@
-// "use client";
+"use client";
 
-// import React, { Suspense } from "react";
+import React, { Suspense } from "react";
 // import GoogleLogin from "../../_components/GoogleLogin";
 
-// const GoogleAuthPage = () => {
-//   return (
-//     <Suspense>
-//       <GoogleLogin />
-//     </Suspense>
-//   );
-// };
+const GoogleAuthPage = () => {
+  return (
+    <Suspense>
+      {/* <GoogleLogin /> */}
+    </Suspense>
+  );
+};
 
-// export default GoogleAuthPage;
+export default GoogleAuthPage;
